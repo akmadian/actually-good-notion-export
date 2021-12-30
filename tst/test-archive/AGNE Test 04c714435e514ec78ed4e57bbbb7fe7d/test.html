@@ -1,0 +1,704 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>AGNE Test</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e6c7fd90-d68d-4edc-a02a-4ad2d5d99ca8" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🗽</span></div><h1 class="page-title">AGNE Test</h1></header><div class="page-body"><h1 id="4d57aca5-ef80-46d4-947d-ebb1fc560ad3" class="">BASIC BLOCKS</h1><p id="c9e0112b-eb71-4339-a52e-d000529f3ffa" class="">Text</p><figure id="be805ef3-c64e-4990-a573-131228668e88" class="link-to-page"><a href="AGNE%20Test%2004c714435e514ec78ed4e57bbbb7fe7d/Page%20Link%20be805ef3c64e4990a573131228668e88.html">Page Link</a></figure><ul id="dc69d9e7-8b61-46a3-80c7-7abe258bff45" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">To Do 1</span></li></ul><ul id="48681672-057c-44f7-ae68-c859e89902bb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">To Do 2</span></li></ul><h1 id="b7693098-f66d-4b19-8da1-35c2f10e1de9" class="">Heading 1</h1><h2 id="a1fdc53e-ff59-4fdd-afc4-0e708413b6bf" class="">Heading 2</h2><h3 id="ab54e64e-ed21-4e51-86e5-220f412c9890" class="">Heading 3</h3><table id="c81f166a-c746-474b-a62f-fbf1da0325f6" class="simple-table"><tbody><tr id="ae6a7758-7ecc-485f-ae45-5d64b59b516e"><td id="yJ~]">1, 1</td><td id="yvfn">2, 1</td></tr><tr id="6e8c1894-0f67-4f5c-a228-628aa0a597c7"><td id="yJ~]">1, 2</td><td id="yvfn">2, 2</td></tr><tr id="b1a21d5d-86c2-43b4-b2a4-3d04c634a7fb"><td id="yJ~]">1, 3</td><td id="yvfn">2, 3</td></tr></tbody></table><ul id="41ab03d8-fa6e-4653-b7ba-b086351d9291" class="bulleted-list"><li style="list-style-type:disc">Bullet 1</li></ul><ul id="4ebadd20-5190-4b04-bfad-01a82b802a84" class="bulleted-list"><li style="list-style-type:disc">Bullet 2</li></ul><ul id="7c5592b3-0e3b-406c-907a-6fb95464b0b2" class="toggle"><li><details open=""><summary>Toggle</summary><p id="bbf6fc90-c08a-4fdd-8b61-398102068f83" class="">Toggle Content</p></details></li></ul><blockquote id="769ecbd1-b4fd-4a76-bc6a-fa2f1bc940a7" class="">Quote</blockquote><hr id="f0500de5-234b-41be-a795-c9e0680e8a04"/><figure id="be805ef3-c64e-4990-a573-131228668e88" class="link-to-page"><a href="AGNE%20Test%2004c714435e514ec78ed4e57bbbb7fe7d/Page%20Link%20be805ef3c64e4990a573131228668e88.html">Page Link</a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a12611a5-d80a-48b3-ae9f-0f54d5281693"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Callout</div></figure><p id="d5b86b2d-5d01-4cf7-b329-c256327b7a43" class="">
+</p><hr id="608b8a5a-0741-472f-a4c7-99f1bed00e5b"/><h1 id="39624f0b-880b-4e18-92aa-e4d062407540" class="">INLINE</h1><p id="19c31ed8-0456-4249-95d1-90adcb98321c" class="">Image</p><figure id="bc8c9c6e-97e1-49c0-b924-63e0a6f3d9a0" class="image"><a href="https://images.unsplash.com/photo-1597667554307-885851e705c8?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1597667554307-885851e705c8?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><p id="5f9e7d12-48df-4984-9035-24843272f925" class="">Bookmark</p><figure id="b6309c64-55c8-41bd-9155-867dd2162a14"><a href="http://example.com" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Example Domain</div><div class="bookmark-description">This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.</div></div><div class="bookmark-href">http://example.com</div></div></a></figure><p id="d98d2b36-ff98-44b2-a45e-179cd1631364" class="">Video Embed</p><figure id="8868d7cc-5b80-4e17-811f-4900129f1172"><div class="source"><a href="https://www.youtube.com/watch?v=jdUXfsMTv7o&amp;list=FL6mPP2JDsn-dbxkPgNQxKhA">https://www.youtube.com/watch?v=jdUXfsMTv7o&amp;list=FL6mPP2JDsn-dbxkPgNQxKhA</a></div></figure>
+
+<p id="4ee76566-a9a4-48f0-bc39-5699c2a901a5" class="">Audio Embed</p>
+<figure id="86c1aea1-0bf6-4ccf-9802-2647d710cf4b">
+	<div class="source">
+		<a href="https://open.spotify.com/track/393MDhe62s8hbH8ETrlxe5?si=4fbe197c185f4066">https://open.spotify.com/track/393MDhe62s8hbH8ETrlxe5?si=4fbe197c185f4066</a>
+	</div>
+</figure>
+
+<iframe 
+	src="https://open.spotify.com/embed/track/393MDhe62s8hbH8ETrlxe5"
+	width="100%"
+	height="80"
+	frameBorder="0"
+	allowtransparency="true"
+	allow="encrypted-media"
+></iframe>
+
+<p id="e1e527ee-2cf2-4bdd-93c3-62f0687936ef" class="">Code Snippet</p><pre id="b6cd6561-c8f6-4dc6-b97c-bf8165aeb7cc" class="code"><code>float Q_rsqrt( float number )
+
+	{
+	long i;
+	float x2, y;
+	const float threehalfs = 1.5F;
+
+	x2 = number * 0.5F;
+	y  = number;
+	i  = * ( long * ) &amp;y;                       // evil floating point bit level hacking
+	i  = 0x5f3759df - ( i &gt;&gt; 1 );               // what the fuck? 
+	y  = * ( float * ) &amp;i;
+	y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+  //	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+	return y;
+}</code></pre><p id="18dd5763-7d49-4409-95b1-4b9384497955" class="">Embed</p><figure id="2d41f94b-c14a-454c-8e83-6ca8f4cd7189"><div class="source"><a href="https://example.com">https://example.com</a></div></figure><figure id="04c71443-5e51-4ec7-8ed4-e57bbbb7fe7d"><div class="source"><a href="AGNE%20Test%2004c714435e514ec78ed4e57bbbb7fe7d/dummy.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a3db9999-385c-422b-9496-8120a33e3319/dummy.pdf</a></div></figure>
+
+<p id="9c341e55-6819-483b-9359-eb10110a0c42" class="">Tweet</p>
+<figure id="61ec9cd5-1d47-4a29-80f8-1b65dc9c3e62">
+	<div class="source">
+		<a href="https://twitter.com/jack/status/20">https://twitter.com/jack/status/20</a>
+	</div>
+</figure>
+	
+	<p id="0138a616-369d-407b-a286-aea16bc524d6" class="">Github Gist</p><figure id="939a3397-4417-48b5-8eb6-a41cc3f5739d"><div class="source"><a href="https://gist.github.com/akmadian/bd60e97ac3e87302dc67c2435dc31c02">https://gist.github.com/akmadian/bd60e97ac3e87302dc67c2435dc31c02</a></div></figure><p id="af53907d-7946-4b10-af41-f23061a7c4ba" class="">Google Maps</p><figure id="82ad6881-753e-4391-af78-91bf415a9bc5"><div class="source"><a href="https://www.google.com/maps/@47.6108379,-122.3420649,13z">https://www.google.com/maps/@47.6108379,-122.3420649,13z</a></div></figure><p id="3335387f-a201-42c7-b684-f2214852000b" class="">
+</p><hr id="7c82c090-f6c0-4424-8dc2-a8352b5055c4"/><h1 id="43f209ff-1431-429f-9173-dcdbce16509e" class="">ADVANCED BLOCKS</h1><p id="9c8e0b1b-1a68-4927-8a4a-7c96d4ac7e62" class="">TOC</p><nav id="1678da22-87c8-4f62-b951-4580b6515a74" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4d57aca5-ef80-46d4-947d-ebb1fc560ad3">BASIC BLOCKS</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b7693098-f66d-4b19-8da1-35c2f10e1de9">Heading 1</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a1fdc53e-ff59-4fdd-afc4-0e708413b6bf">Heading 2</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#ab54e64e-ed21-4e51-86e5-220f412c9890">Heading 3</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#39624f0b-880b-4e18-92aa-e4d062407540">INLINE</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#43f209ff-1431-429f-9173-dcdbce16509e">ADVANCED BLOCKS</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#303c3a41-f3e4-40dd-a260-f5db319211df">COLOR &amp; BACKGROUND</a></div></nav><p id="195458e9-475e-4c01-9bb9-fb219d4cf900" class="">TeX Block</p><figure id="7feb5e0d-7f5b-4a37-bea1-9fd753840c3f" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>x</mi><mi mathvariant="normal">∣</mi><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.3600em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>2</mn><mi>x</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mspace width="1em"/><mi>x</mi><mo>≥</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>1</mn><mo>−</mo><mi>x</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mspace width="1em"/><mi>x</mi><mo>&lt;</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">|x| = \begin{cases}
+    2   x, &amp;\quad x \geq 0 \\
+    1   -x, &amp;\quad x &lt; 0   \end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">x</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">x</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div></figure><hr id="5e51d499-5bb9-472c-8fa6-ac9c3c14318b"/><h1 id="303c3a41-f3e4-40dd-a260-f5db319211df" class="">COLOR &amp; BACKGROUND</h1><div id="3e5f42b0-e989-4272-b4a7-ea207c7ee643" class="column-list"><div id="61bd591a-bd29-46d6-b6ff-4cd6177e8fb8" style="width:50%" class="column"><p id="f15aad2d-70ed-4268-b5b2-5a77c73b40e2" class="">Default</p><p id="5e81b925-dd4b-433b-9b54-7944d98c8e71" class="block-color-gray">Gray</p><p id="5758ba63-09f3-411c-b2e5-ed7f28280541" class="block-color-brown">Brown</p><p id="78b140df-6138-4d45-af57-0d16f8c19533" class="block-color-orange">Orange</p><p id="f6a264da-bbfa-4f84-962c-e4f3eeb9bfba" class="block-color-yellow">Yellow</p><p id="7a41b6f9-8ef3-4fe0-b432-6ccf2f3cdf2c" class="block-color-teal">Green</p><p id="5830066c-a286-44fb-b4c8-e67a191e3890" class="block-color-blue">Blue</p><p id="ea373754-32f8-4323-9462-e9876eeb32a5" class="block-color-purple">Purple</p><p id="12d563f3-98fe-41fa-8a60-b55d04a7956f" class="block-color-pink">Pink</p><p id="192174af-1dd3-481e-b4bd-5c28b4ffd741" class="block-color-red">Red</p></div><div id="0acf7a17-a534-415e-bbf8-761603f8bbab" style="width:50%" class="column"><p id="a8f70796-96ed-48fe-be52-c66aa4e8c006" class="">Default</p><p id="b5b7d751-6ce7-44fe-8b4f-93a5f903a014" class="block-color-gray_background">Gray</p><p id="11ad2457-0d14-454e-8978-3662619c6f37" class="block-color-brown_background">Brown</p><p id="375a29f3-0f96-453b-8a42-a54aca02cefa" class="block-color-orange_background">Orange</p><p id="d243c1a5-ba47-4e32-b00e-2c5e6df4e4e5" class="block-color-yellow_background">Yellow</p><p id="08680364-6913-470f-8036-371d140028bb" class="block-color-teal_background">Green</p><p id="b04e33ec-687e-4446-8597-aaa0471067db" class="block-color-blue_background">Blue</p><p id="7bd6f961-0a77-4110-bb9b-7c55e3f058d9" class="block-color-purple_background">Purple</p><p id="cff9c1f4-8717-4f80-8989-18830df70f38" class="block-color-pink_background">Pink</p><p id="124ea46b-7a66-46f8-b935-c94186314bbb" class="block-color-red_background">Red</p><p id="debc44f1-7885-4ecb-970e-f5e55cc81054" class="">
+</p></div></div></div></article></body></html>

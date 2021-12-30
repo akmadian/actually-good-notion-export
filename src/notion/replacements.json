@@ -1,0 +1,8 @@
+[
+    {
+        "name": "spotify",
+        "link_pattern": "https://open.spotify.com/(?:track|album|playlist|artist)/.{22}(?:\\?si=.{16})",
+        "pattern": "(<figure id=\".{36}\"><div class=\"source\"><a href=\"LINK_PATTERN\">LINK_PATTERN</a></div></figure>)",
+        "template": "<iframe src=\"URL\" width=\"WIDTH\" height=\"HEIGHT\" frameBorder=\"0\" allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>"
+    }
+]

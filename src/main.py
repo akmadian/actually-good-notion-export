@@ -8,6 +8,8 @@ def main():
     print(args)
 
     export = Export(args.input_dir)
+    export.do_replacements()
+    export.do_export()
 
 
 if __name__ == '__main__':
